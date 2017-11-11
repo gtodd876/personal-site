@@ -172,6 +172,7 @@ img.profile-pic {
   float: left;
 }
 
+
 .nav-items {
   align-self: center;
   color: #526488;

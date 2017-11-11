@@ -22,4 +22,11 @@ html {
   margin: 0;
 }
 
+.button--purple {
+background-image: linear-gradient(90deg, #526488 53%, #697B9E 100%);
+/* background-image: linear-gradient(90deg, #5345C3 23%, #675CC8 100%); */
+border-radius: 2px;
+padding: 16px 20px;
+border: none;
+}
 </style>
