@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div class="about nav-items">
+    <nuxt-link to="/" exact>
       <svg width="34px" height="32px" viewBox="0 0 34 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
           <g id="home-page-open-menu" transform="translate(-17.000000, -261.000000)" stroke="#526488" stroke-width="2">
@@ -12,9 +13,12 @@
           </g>
         </g>
       </svg>
-      <span>About</span>
+      <span>Home</span>
+    </nuxt-link>
     </div>
     <div class="portfolio nav-items">
+    <nuxt-link to="/portfolio" exact>
+      <transition>
       <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
             <g id="home-page-open-menu" transform="translate(-18.000000, -374.000000)" stroke-width="2">
@@ -27,9 +31,12 @@
             </g>
         </g>
       </svg>
-      <span>Portfolio</span>
+      </transition name="spin">
+      <span>Projects</span>
+    </nuxt-link>
     </div> <!-- porfolio -->
     <div class="resume nav-items">
+    <nuxt-link to="/resume" exact>
       <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
           <g id="home-page-open-menu" transform="translate(-16.000000, -504.000000)" stroke-width="2">
@@ -44,8 +51,10 @@
         </g>
       </svg>
       <span>Resume</span>
+    </nuxt-link>
     </div>
     <div class="contact nav-items">
+    <nuxt-link to="/contact" exact>
       <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
           <g id="home-page-open-menu" transform="translate(-16.000000, -634.000000)" stroke-width="2">
@@ -61,6 +70,7 @@
         </g>
       </svg>
       <span>Contact</span>
+    </nuxt-link>
     </div> <!--contact -->
     <div class="name">
       <img class="profile-pic" src="~/assets/profile-pic-optimized.png" alt="profile-picture">
@@ -69,25 +79,24 @@
     </div> <!-- name -->
     <div class="bio">
       <p>I am a classical musician turned coder that is obsessed with learning and building. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eleifend in tortor ac congue. Proin et metus interdum, pretium arcu a, venenatis felis. Nulla tempus augue a neque gravida euismod. Sed fermentum ante magna, at consdf.</p>
-      <button class="button--purple">
-        <a class="button-link" href="/porfolio" >
-          See My Work
+      <br>
+      <a class="button--purple" href="/porfolio" >
+        See My Work
           <svg class="circle-arrow" width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-                  <g id="home-page-open-menu" transform="translate(-533.000000, -741.000000)" stroke-width="2" stroke="#E0DEF0">
+                  <g class="circle-arrow" transform="translate(-533.000000, -741.000000)" stroke-width="2" stroke="#E0DEF0">
                       <g id="Button-See-My-Work" transform="translate(315.000000, 712.000000)">
                           <g id="arrow-right-circle" transform="translate(219.000000, 30.000000)">
-                              <g id="Group-2">
-                                  <circle id="Oval" cx="9.5" cy="9.5" r="9.5"></circle>
-                                  <path d="M3,9.50063636 L14,9.50063636 M9.91365714,6 L13.9993714,9.5 L9.91365714,13" id="Shape"></path>
+                              <g id="Group-2" >
+                                  <circle class="circle-arow" id="Oval" cx="9.5" cy="9.5" r="9.5"></circle>
+                                  <path class="circle-arow" d="M3,9.50063636 L14,9.50063636 M9.91365714,6 L13.9993714,9.5 L9.91365714,13" id="Shape"></path>
                               </g>
                           </g>
                       </g>
                   </g>
               </g>
           </svg>      
-        </a>
-      </button>
+      </a>
     </div>
   </section>
 </template>
@@ -149,22 +158,16 @@ letter-spacing: 0.75px;
 margin: 140px 0 10px 0;
 }
 
-.links {
-  padding-top: 15px;
-}
-
-a.button-link {
-font-family: Quicksand-Bold;
-font-size: 1.3rem;
-color: #E0DEF0;
-letter-spacing: 0.76px;
-}
-
 a {
   text-decoration: none;
+  color: #526488;
 }
 
-svg.circle-arrow {
+.router-link-exact-active {
+  pointer-events: none;
+}
+
+  svg.circle-arrow {
   padding-top: 5px;
 }
 
@@ -178,13 +181,15 @@ img.profile-pic {
   color: #526488;
   font-family: "Source Sans Pro";
   font-size: 2rem;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  
 }
+
 
 .about {
   grid-column: 2/3;
   grid-row: 1/2;
-  padding-bottom: 35px;
+  /* padding-bottom: 35px; */
 }
 
 .portfolio {
@@ -204,5 +209,12 @@ img.profile-pic {
 
 .nav-items svg {
   margin-right: 10px;
+}
+
+.nav-items span:hover {
+  transition: 0.6s ease;
+  cursor: pointer;
+  color: #45C1F9;
+  
 }
 </style>
